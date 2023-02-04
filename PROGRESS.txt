@@ -1,0 +1,53 @@
+
+load data [v]
+[v]load data from brown
+
+cleanData [v]
+[v]pisah data per kata
+[v]hapus stopwords
+[v]hapus konjungsi dan tanda baca
+[v]pastiin katanya ga mengandung angka
+
+cleanChunk [v]
+[v]pisahin kata dan nama -> POS tag dan NER
+
+getPost + setLemma [v]
+[v]buat semua kata jadi bentuk rootnya pake lemma
+
+getSynonimAntonym [v]
+[v]simpen sinonim setiap kata -> WordNet
+[v]simpen antonim setiap kata -> WordNet
+
+getDefinition [v]
+[v]method buat dapetin definisi dan contoh kata
+
+getMostInputtedWord [v]
+[v]read input kata terbanyak yang muncul
+
+getSavedTrainedModel [v]
+[v]naive beyes
+[v]save pake pickle
+
+GameList
+RiddLez
+-game tebak kata
+-nebak based on makna kata dan example
+
+TypeYourThought
+-user type
+-sistem define kata terbanyak yang muncul dari input user
+-tampilin makna kata yang paling banyak muncul
+
+NaiveBeyes
+-kalo datanya null, langsung jalanin naive beyes (auto save)
+-kalo ga null tanyain mau load kaga
+-kalo kaga ambil dari last save
+-kalo iya reload ulang (auto save)
+
+VALIDATION LIST
+1. NaiveBeyes.py
+	[v]detect model.pickle udah ada di directory sekarang ato belum, kalo belum classify ulang dan save
+2. Game.py
+	[v]TypeYourThought harus input minimal 4 kata -> isInputValid()
+	[v]RiddLez kata yang random harus ada definisi dan contoh kalimatnya -> getRandomWord()
+	[v]Riddlez kata yang random harus 4 huruf minimal -> getRandomWord()
